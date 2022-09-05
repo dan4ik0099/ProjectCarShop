@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style>
+        tr{
+            padding: 10px;
+            margin:10px;
+        }
+        td {
+            padding: 10px;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <td>Картинка</td>
+        <td>Фирма</td>
+        <td>Модель</td>
+        <td>Год</td>
+        <td>ЛС</td>
+        <td>Скорость</td>
+        <td>Стоимость</td>
+        <td>Количество на складе</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td><a th:href="${'/catalog/' + car.id}"><img th:src="${car.img}" width="100" height="100"/></a></td>
+        <td th:text = ${car.brand}></td>
+        <td th:text = ${car.model}></td>
+        <td th:text = ${car.year}></td>
+        <td th:text = ${car.hp}></td>
+        <td th:text = ${car.speed}></td>
+        <td th:text = ${car.cost}></td>
+        <td th:text = ${car.amount}></td>
+        <td th:if=${isAuth!=null}><a th:href="${'/addincart/' + car.id}">Добавить в корзину</a></td>
+        <td th:if=${isAuth!=null}><a th:href="${'/buy/' + car.id}">Купить</a></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!doctype HTML>
+
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        CarView
+    </title>
+
+
+    <link rel="stylesheet" type="text/css" href="tomato.css">
+
+    <script src="index.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+
+        nav {
+            width: 500px;
+        }
+
+        ul {
+            padding-inline-start: 40px;
+        }
+
+        #bg {
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+
+
+            background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1612505366_159-p-kartinki-cherno-serii-fon-238.jpg");
+
+
+        }
+
+        @-webkit-keyframes pulsate {
+            50% {
+                color: red;
+                text-shadow: 0 -1px rgba(0, 254, 0, .3), 0 0 5px #ffd, 0 0 8px #fff;
+            }
+        }
+
+        @keyframes pulsate {
+            50% {
+                color: red;
+                text-shadow: 0 -1px rgba(0, 254, 0, .3), 0 0 5px #ffd, 0 0 8px #fff;
+            }
+        }
+
+
+        a {
+            color: #000 !important;
+            text-decoration: none;
+
+        }
+
+
+        .rating-result span {
+            padding: 0;
+            font-size: 40px;
+            line-height: 1;
+            color: lightgrey;
+            text-shadow: 1px 1px #bbb;
+        }
+
+        .rating-result > span:before {
+            content: '★';
+        }
+
+        .rating-result > span.active {
+            color: gold;
+            text-shadow: 1px 1px #c60;
+        }
+
+        .rating-area:not(:checked) > input {
+            display: none;
+        }
+
+        .rating-area:not(:checked) > label {
+            float: right;
+            width: 60px;
+            padding: 0;
+            cursor: pointer;
+            font-size: 55px;
+            line-height: 50px;
+            color: lightgrey;
+            text-shadow: 1px 1px #bbb;
+        }
+
+        .rating-area:not(:checked) > label:before {
+            content: '★';
+        }
+
+        .rating-area > input:checked ~ label {
+            color: gold;
+            text-shadow: 1px 1px #c60;
+        }
+
+        .rating-area:not(:checked) > label:hover,
+        .rating-area:not(:checked) > label:hover ~ label {
+            color: gold;
+        }
+
+        .rating-area > input:checked + label:hover,
+        .rating-area > input:checked + label:hover ~ label,
+        .rating-area > input:checked ~ label:hover,
+        .rating-area > input:checked ~ label:hover ~ label,
+        .rating-area > label:hover ~ input:checked ~ label {
+            color: gold;
+            text-shadow: 1px 1px goldenrod;
+        }
+
+        .rate-area > label:active {
+            position: relative;
+        }
+
+        #search {
+            background: #6f5d7d !important;
+            display: inline-block;
+            outline: none;
+            border: none;
+            width: 200px;
+            height: 100%;
+            text-align: right;
+            border-radius: 30px;
+
+        }
+
+        #navigation_wrap {
+            width: 100%;
+            height: 70px;
+            background: #6f5d7d;
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        #navigation_cont {
+
+            display: flex;
+            width: 980px;
+            margin: 0 auto;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .nav_item {
+            margin-top: 20px;
+            background: #6f5d7d;
+            display: inline-block;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            font-weight: bolder;
+            font-size: 15pt;
+            color: black;
+        }
+
+        li {
+            display: inline-block;
+            color: black;
+            background: white;
+        }
+
+
+        main {
+            height: 780px;
+            width: 100%;
+            display: flex;
+
+
+        }
+
+        #main_cont {
+            width: 980px;
+            margin: 0 auto;
+
+            display: flex;
+        }
+
+        #item_cont {
+
+            width: 350px;
+
+        }
+
+        #item {
+
+            display: inline-block;
+            width: 350px;
+            height: 350px;
+
+            border-radius: 60px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid black;
+            background-color: #cffff7;
+        }
+
+
+        textarea {
+            text-align: start;
+            border-radius: 5px;
+            background: #c9ffef;
+            width: 95%;
+            height: 70px;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-align: start;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            outline: none;
+        }
+
+
+        footer {
+            border: 1px solid black;
+            width: 100%;
+            height: 60px;
+            background: #6f5d7d;
+            position: fixed;
+            bottom: 0;
+        }
+
+        #footer_info {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #footer_copyright {
+            margin-top: 13px;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            font-weight: bolder;
+            font-size: 15pt;
+        }
+
+        #header_cont {
+            width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            display: flex;
+        }
+
+        #login_k {
+            text-align: center;
+            width: 350px;
+        }
+
+        .logo {
+            width: 165px;
+            height: 70px;
+            margin-top: 10px;
+        }
+
+        #site_name {
+
+            display: inline-block;
+            width: 650px;
+            color: white;
+            background: #AC9CC4;
+
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;
+        }
+
+        .button5 {
+
+            margin-top: 30px;
+            height: 40px;
+            float: right;
+            width: 100px;
+            border-radius: 20px;
+
+        }
+
+        a.button5 {
+            position: relative;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+
+            user-select: none;
+            padding-top: 4px;
+            outline: none;
+            font-size: 20px;
+            background-color: orange;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 0%, rgba(0, 0, 0, 0) 50%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto;
+            background-position: 200% 0, 0 0;
+            box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+            text-decoration: none !important;
+
+
+        }
+
+        a.button5:active {
+            top: 1px;
+            box-shadow: none;
+        }
+
+        a.button5:hover {
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+
+        input.button5:hover {
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+
+        input.button5 {
+            position: relative;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+
+            user-select: none;
+            padding-top: 4px;
+            outline: none !important;
+            font-size: 20px;
+            background-color: orange;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 0%, rgba(0, 0, 0, 0) 50%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto;
+            background-position: 200% 0, 0 0;
+            box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+            text-decoration: none !important;
+        }
+
+        input.button5:active {
+            top: 1px;
+            box-shadow: none;
+        }
+        input{
+            border: none !important;
+            border-radius: 60px;
+            padding-left: 8px;
+
+
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.82);
+        }
+
+        header {
+            position: relative;
+            background-color: #AC9CC4;
+            width: 100%;
+            height: 100px;
+            min-width: 980px;
+            display: flex !important;
+            justify-content: center !important;
+            border: 1px solid black;
+        }
+
+        #search {
+            float: right !important;
+            background: #c3a2fc;
+            display: inline-block;
+            outline: none;
+            border: none;
+            width: 200px;
+            height: 100%;
+            text-align: right;
+            border-radius: 60px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            margin-right: 40px;
+
+        }
+
+        #navigation_wrap {
+            position: relative;
+
+            width: 100%;
+            height: 70px;
+            background: #6f5d7d;
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            min-width: 980px;
+
+        }
+
+        #navigation_cont {
+            box-sizing: border-box;
+            position: relative;
+
+            width: 980px;
+            margin: 0 auto;
+
+            height: 100%;
+        }
+
+
+        a {
+            color: #000 !important;
+            text-decoration: none;
+        }
+
+        li {
+            display: inline-block;
+            color: black;
+            background: white;
+        }
+
+        .nav_item {
+            margin-top: 20px;
+            background: #6f5d7d;
+            display: inline-block;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            font-weight: bolder;
+            font-size: 15pt;
+            color: black;
+        }
+
+
+        @media screen and (max-width: 768px) and (min-width: 320px) and (orientation: portrait) {
+            #main_cont {
+                flex-direction: column;
+                align-items: center;
+
+
+            }
+
+            #item {
+                margin: 10px;
+                width: 400px;
+                height: 400px;
+
+            }
+
+            #item_cont {
+                height: 700px;
+                width: 970px;
+                align-items: center;
+                margin: 15px auto;
+
+                display: flex;
+                justify-content: space-around;
+
+
+            }
+
+
+            .rating-area:not(:checked) > label {
+
+                font-size: 65px;
+                line-height: 60px;
+
+            }
+
+            textarea {
+                height: 100px;
+            }
+
+            button {
+
+                height: 65px;
+                width: 160px;
+                font-size: 20pt !important;
+                text-align: center !important;
+                padding: 5px !important;
+            }
+
+            .rating-result span {
+                padding: 0;
+                font-size: 50px;
+            }
+        }
+
+        :root {
+        }
+
+        :root[theme='dark'] {
+            filter: invert(100%);
+            background-blend-mode: exclusion;
+        }
+    </style>
+
+</head>
+
+
+<body id="bg">
+
+
+<header>
+    <div id="header_cont">
+        <div class="logo">
+
+            <img src="logo.png" id="toggle-theme" style="width: 80px; height: 70px; cursor: pointer;">
+
+        </div>
+        <div id="site_name" style="cursor: pointer;">
+            <a href="/main" style="color: white !important; text-decoration:none !important;">MY CARS</a>
+
+        </div>
+        <div th:if=${isAuth!=null} style="display: flex; justify-content: space-between" id="login_k">
+
+
+            <div style=" display: inline-block; width: 400px"><a
+                    style="display: inline-block; color: #E26161; font-size: 18pt;"
+                    th:href="${'/cabinet/' + isAuth.id}">
+                <div th:text="${'Привет, ' + isAuth.username}"></div>
+            </a>
+                <div style="display: inline-block; width: 70px; height: 70px" ;><img
+                        src="https://p1.hiclipart.com/preview/349/908/905/bicycle-fotolia-basket-bicycle-accessory-storage-basket-png-clipart.jpg"
+                        width="70px" height="70px"></div>
+                <form style="height: 100px; width: 100px; display: inline-block; margin-top: 25px" id="logout"
+                      th:action="@{/logout}" method="post">
+                    <input style="width: 100px" type="submit" value="Logout"/>
+                </form>
+            </div>
+        </div>
+        <div th:if=${isAuth==null} id="login_k">
+
+            <a href="/login" class="button5" style="margin-left: 20px !important;">Login</a>
+            <a href="/registration" class="button5">Register</a>
+
+        </div>
+
+
+    </div>
+
+
+</header>
+
+
+<div id="navigation_wrap">
+    <div id="navigation_cont">
+        <nav>
+            <ul class="nav_main">
+                <li class="nav_item"><a href="main.html">Home</a> &#10144;</li>
+                <li class="nav_item"><a href="kfc.html">KFC</a> &#10144;</li>
+                <li class="nav_item"><a href="kfc(sauces).html">Sauces</a> &#10144;</li>
+                <li class="nav_item"><a href=""></a>Кетчуп Томатный</li>
+
+            </ul>
+        </nav>
+
+        <div id="search">
+            <input type="search" placeholder="Search..."
+                   style="border:none; outline: none;width: 174px;height: 29px; border-radius:13px; padding: 3px 6px;">
+        </div>
+    </div>
+</div>
+
+
+<main>
+    <div id="main_cont">
+        <div id="item_cont">
+
+            <div id="item">
+                <img th:src="${car.img}" width="350px" height="350px" style="vertical-align: top; display: block; border-radius: 30px;
+               border: 2px solid black; box-shadow: 0 0 4px #666;">
+            </div>
+            <div style="display: block; background-color: #FBCEB1;border-radius: 40px; padding: 20px; margin-top: 50px;">
+                <div th:text="${'На складе: ' + car.amount + ' шт.'}" style="font-size: 18pt;">
+
+                </div>
+                <div th:text="${'Стоимость: ' + car.cost + ' $'}" style="font-size: 18pt;"></div>
+                <div th:if=${isAuth!=null}>
+
+
+                    <form style="display: flex; justify-content: center; align-items: center;"
+                            th:action="@{'/cart/add/'+${car.id}}" th:object="${count}" method="get">
+
+                        <input value="В корзину" type="submit" class="button5"
+                               style="background-color: #EBC7DF !important;  text-align: center; width: 180px; color:black; margin-top: 0px; padding: 0px; font-size: 14pt;border: none;">
+                        <div style="display: flex; margin-left: 20px;">
+                            <input type="number" id="count" name="count" class="count"
+                                   style=" outline: none !important; width: 70px; height: 30px; " min="1" value="1"
+                                   th:max="${car.amount}">
+                            <div style="margin-right: 50px; font-size: 16pt; margin-left: 6px">шт.</div>
+                        </div>
+                    </form>
+                </div>
+                <a th:href="${'/buyIt/' + car.id}" class="button5"
+                   style="background-color: #C2BCFB !important; display: block; position: inherit; float: none !important; text-align: center; margin-top: 10px;width: 290px">Купить</a>
+
+            </div>
+        </div>
+        <div style="width: 570px;margin-left: 60px; height: 700px;">
+            <div style="display: block; border-radius: 50px; width: 570px; padding: 20px; margin-top: 20px;text-align: center;background-color: #FBCEB1; ">
+                <div  th:text="${'Марка: ' + car.brand}" style="font-size: 18pt;"></div>
+                <div  th:text="${'Модель: ' + car.model}" style="font-size: 18pt;"></div>
+
+                <div th:text="${'Мощность: ' + car.hp + ' Л.С.'}" style="font-size: 18pt;">
+
+                </div>
+                <div th:text="${'Скорость: ' + car.speed + ' Км/ч'}" style="font-size: 18pt;">
+
+                </div>
+                <div th:text="${'Год выпуска: ' + car.year}" style="font-size: 18pt;">
+
+                </div>
+
+                <div th:text="${'Страна: ' + car.country}" style="font-size: 18pt;">
+
+                </div>
+                <div th:text="${'Кузов: ' + car.type}" style="font-size: 18pt;">
+
+                </div>
+
+            </div>
+            <div style="display: block; background-color: #FBCEB1; border-radius: 50px; width: 570px; padding: 20px; margin-top: 25px;">
+                <p style="font-size: 16pt" th:text="${'Описание: ' + car.description}"></p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+<footer>
+    <div id="footer_info">
+        <div id="footer_copyright">
+            Copyrighted by PLACEHOLDER©
+        </div>
+        <div id="footer_copyright">
+            support: <a href="#" target="_blank">KD</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

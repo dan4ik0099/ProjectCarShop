@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        RMB
+    </title>
+
+
+    <link rel="stylesheet" type="text/css" href="E:/RMB/project/index.css">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        :root{}
+        :root[theme='dark'] {
+            filter: invert(100%);
+
+        }
+
+        a.button5 {
+            position: relative;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+
+            user-select: none;
+            padding-top: 4px;
+            outline: none ;
+            font-size: 20px;
+            background-color: orange;
+            background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto;
+            background-position: 200% 0, 0 0;
+            box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+            text-decoration: none !important;
+
+
+        }
+        a.button5:active {
+            top: 1px;
+            box-shadow: none;
+        }
+        a.button5:hover {
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+
+
+
+
+
+
+
+
+
+        #button1:visited, a:focus, a:active, a:hover{
+            outline:0 none !important;
+        }
+        #button2:visited, a:focus, a:active, a:hover{
+            outline:0 none !important;
+        }
+        #button3:visited, a:focus, a:active, a:hover{
+            outline:0 none !important;
+        }
+
+
+        @keyframes bounce {
+            0%, 20%, 60%, 100% {
+                transform: translateY(0);
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+                transform: translateY(-20px);
+            }
+
+            80% {
+                transform: translateY(-10px);
+                transform: translateY(-10px);
+            }
+        }
+
+        #button1:hover {
+            animation: bounce 0.5s;
+        }
+        #button2:hover {
+            animation: bounce 0.5s;
+        }
+        #button3:hover {
+            animation: bounce 0.5s;
+        }
+
+
+
+        #htext{
+
+            color: white;
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            text-align: center;
+        }
+        .container-1{
+
+            position: absolute;
+            margin-left: 100px;
+            margin-top: -10px;
+
+        }
+
+        #bg {
+            width: 100%;
+            height: 100%;
+            background-size:200px;
+
+            background-color: #90F8FF;
+            background-image: url(//E:/RMB/project/fon1.png);
+            background-repeat: repeat;
+            background-blend-mode: color;
+
+
+        }
+
+        #banner{
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 60pt;
+            line-height: 117px;
+            text-align: center;
+            color: #ff53a3;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            margin-top: 7.55%;
+        }
+
+
+
+        #textlog1{
+            padding-top: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 30pt;
+            font-style: normal;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+
+
+
+        #textlog2{
+            padding-top: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 30pt;
+            font-style: normal;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+
+
+
+        #textlog3{
+            padding-top: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 30pt;
+            font-style: normal;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+
+
+        #header{
+            background-color: #00acd9;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            border: 1px solid black;
+        }
+        #mein{
+            max-width: 900px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+
+
+
+        footer{
+            border: 1px solid black;
+            width: 100%;
+            height: 60px;
+            background: #FFB524;
+            position: fixed;
+            bottom:0;
+        }
+
+
+        #footer_info{
+            display: flex;
+            justify-content: space-around;
+        }
+        #footer_copyright
+        {
+            margin-top: 13px;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            font-weight: bolder;
+            font-size: 15pt;
+        }
+
+
+
+
+
+        header{
+            position:relative;
+            background-color: #00acd9;
+            width: 100%;
+            height: 100px;
+            min-width: 980px;
+            display: flex !important;
+            justify-content: center !important;
+            border: 1px solid black;
+
+
+        }
+
+        #site_name{
+
+            display: inline-block;
+            width: 650px;
+            color: white;
+            background: #00acd9;
+
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;
+        }
+
+        #option{
+            width: 980px;
+            height: 700px;
+            margin:0 auto;
+
+        }
+        #option_header{
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 60pt;
+            text-align: center;
+            color: #ff53a3;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            margin-top: 100px;
+        }
+
+
+
+        #floor1{
+            height: 70px;
+            width: 700px;
+
+
+            margin:40px auto;
+
+            display: flex;
+            justify-content: space-between;
+        }
+        #floor2{
+            width: 700px;
+            height: 70px;
+            margin:0 auto;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        #b1{
+            display: inline-block;
+            height: 70px;
+            width: 280px;
+
+
+            display: flex;
+            justify-content: center;
+        }
+        #b2{
+            display: inline-block;
+            height: 70px;
+            width: 280px;
+
+
+            display: flex;
+            justify-content: center;
+        }
+        #b3{
+            display: inline-block;
+            height: 70px;
+            width: 280px;
+
+
+            display: flex;
+            justify-content: center;
+        }
+        #button1
+        {
+            background-color: #00F043;
+            border-radius: 60px;
+            box-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+            width: 280px;
+            height: 70px;
+            padding-top: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 30pt;
+            font-style: normal;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            outline: none;
+
+        }
+        #button3
+        {
+            background-color: #3562FF;
+            border-radius: 60px;
+            box-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+            width: 280px;
+            height: 70px;
+            padding-top: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 30pt;
+            font-style: normal;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            outline: none;
+
+        }
+        #button2
+        {
+            background-color: #fa6d6d;
+            border-radius: 60px;
+            box-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+            width: 280px;
+            height: 70px;
+            padding-top: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 30pt;
+            font-style: normal;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            outline: none;
+
+        }
+
+
+        #header_cont{
+            width: 980px;
+            margin: 0 auto;
+            justify-content: center;
+            display: flex;
+        }
+        #login_k
+        {
+            text-align: center;
+
+            width: 165px;
+
+
+
+        }
+        .logo{
+            width: 165px;
+            height: 70px;
+            margin-top: 10px;
+
+
+        }
+        .button5
+        {
+
+            margin-top:30px;
+            height: 40px;
+            float: right;
+            width: 100px;
+            border-radius: 20px;
+
+        }
+
+
+
+
+
+
+
+
+
+        @media screen and (max-width: 768px) and (min-width: 320px) and (orientation: portrait){
+
+
+            #option{
+
+                display: flex;
+                flex-direction: column;
+
+
+            }
+
+            #floor1{
+
+                display: flex;
+
+                flex-direction: column;
+            }
+            #b1{
+                margin: 50px auto;
+                height: 300px;
+                width: 700px;
+            }
+            #b2{
+                margin: 50px auto;
+                height: 300px;
+                width: 600px;
+            }
+            #b3{
+                margin-top: 480px;
+
+                height: 300px;
+                width: 700px;
+            }
+            #button1
+            {
+                width: 600px;
+                height: 170px;
+                border-radius: 100px;
+                font-size: 70pt;
+
+            }
+            #button2
+            {
+                width: 600px;
+                height: 170px;
+                border-radius: 100px;
+                font-size: 70pt;
+            }
+            #button3
+            {
+                width: 600px;
+                height: 170px;
+                border-radius: 100px;
+                font-size: 70pt;
+            }
+            #option_header{
+                font-size: 80pt;
+            }
+            #site_name{
+                font-size: 50pt;
+            }
+        }
+
+
+
+    </style>
+
+
+</head>
+<body id="bg">
+<header>
+    <div id="header_cont">
+        <div class="logo">
+
+            <img src="//E:/RMB/project/logo.png" id="toggle-theme" style="width: 80px; height: 70px; cursor: pointer;">
+
+        </div>
+        <div id="site_name">
+            MY CARS
+
+        </div>
+        <div id="login_k">
+
+
+        </div>
+
+
+    </div>
+</header>
+<main>
+    <div id="option">
+        <div id="option_header">
+            CLIQUE
+        </div>
+
+        <div id="floor1">
+            <div id="b1">
+                <a href="/login">
+                    <button id="button1">
+                        Login
+                    </button>
+                </a>
+
+            </div>
+            <div id="b2">
+                <a href="/registration">
+                    <button  id="button2">
+                        Sign Up
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div id="floor2">
+            <div id="b3">
+                <a href="/main">
+                    <button id="button3">
+                        Guest
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</main>
+
+<script>
+    const toggleBtn = document.querySelector("#toggle-theme");
+    toggleBtn.addEventListener("click", function() {
+        if(document.documentElement.hasAttribute("theme")){
+            document.documentElement.removeAttribute("theme");
+        }
+        else{
+            document.documentElement.setAttribute("theme", "dark");
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+</html>

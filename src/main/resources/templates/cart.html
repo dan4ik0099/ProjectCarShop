@@ -1,0 +1,622 @@
+<!doctype HTML>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Cart
+    </title>
+
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="index.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+
+        #header_cont {
+            min-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            display: flex;
+        }
+
+        #login_k {
+            text-align: center;
+
+            width: 350px;
+
+
+        }
+
+        .logo {
+            width: 350px;
+            height: 70px;
+            margin-top: 10px;
+        }
+
+        #site_name {
+
+            display: inline-block;
+            width: 650px;
+            color: white;
+            background: #AC9CC4;
+
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;
+        }
+
+        #site_name {
+
+            display: inline-block;
+            width: 650px;
+            color: white;
+            background: #AC9CC4;
+
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;
+        }
+
+        .button5 {
+
+            margin-top: 30px;
+            height: 40px;
+            float: right;
+            width: 100px;
+            border-radius: 20px;
+
+        }
+
+        a.button5 {
+            position: relative;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+
+            user-select: none;
+            padding-top: 4px;
+            outline: none;
+            font-size: 20px;
+            background-color: orange;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 0%, rgba(0, 0, 0, 0) 50%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto;
+            background-position: 200% 0, 0 0;
+            box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+            text-decoration: none !important;
+
+
+        }
+
+        input.button5:active {
+            top: 1px;
+            box-shadow: none;
+        }
+
+        input.button5:hover {
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+
+        input.button5 {
+            position: relative;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+
+            user-select: none;
+            padding-top: 4px;
+            outline: none;
+            font-size: 20px;
+            background-color: orange;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 0%, rgba(0, 0, 0, 0) 50%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto;
+            background-position: 200% 0, 0 0;
+            box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+            text-decoration: none !important;
+
+
+        }
+
+        a.button5:active {
+            top: 1px;
+            box-shadow: none;
+        }
+
+        a.button5:hover {
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+
+        header {
+            position: relative;
+            background-color: #AC9CC4;
+            width: 100%;
+            height: 100px;
+            min-width: 980px;
+            display: flex !important;
+            justify-content: center !important;
+            border: 1px solid black;
+
+
+        }
+
+
+        .topmenu > li {
+            display: inline-block;
+            position: relative;
+        }
+
+        .topmenu > li: after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 1px;
+            height: 15px;
+            background: black;
+            top: 16px;
+            box-shadow: 4px -2px 0 black;
+            transform: rotate(30deg);
+        }
+
+        .topmenu > li:last-child:after {
+            background: none;
+            box-shadow: none;
+        }
+
+        .topmenu > li > a {
+            padding: 12px 26px;
+            color: #1f1f1f;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .topmenu li a:hover {
+            color: #b26205;
+        }
+
+
+        .submenu li a {
+            padding: 10px 0;
+            margin: 0 10px;
+            border-bottom: 1px solid black;
+            font-size: 16px;
+            color: #484848;
+            font-family: 'Kurale', serif;
+            font-weight: bolder;
+        }
+
+        .topmenu > li:hover .submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+
+        a {
+            color: #000 !important;
+            text-decoration: none;
+        }
+
+        nav {
+            background-color: #6f5d7d;
+        }
+
+        nav ul {
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            outline: none;
+            display: block;
+            transition: .4s ease-in-out;
+        }
+
+        #main {
+
+            width: 100%;
+            min-height: 850px;
+            display: flex;
+        }
+
+        main {
+            width: 100%;
+            border: 1px solid #000000;
+            border-top: none;
+            background-color: #FFB524;
+            z-index: 999;
+            min-width: 980px;
+        }
+
+        #trendSec {
+            padding: 0 0 0 0;
+            margin: 0 auto;
+            width: 980px;
+            min-height: 850px;
+
+
+        }
+
+
+        #tb3 {
+            display: inline-block;
+            width: 980px;
+            height: 220px;
+
+            margin-top: 40px;
+            background-color: #FBCEB1;
+            border-radius: 20px;
+            white-space: nowrap !important;
+        }
+
+
+        #bg {
+            width: 100%;
+            height: 100%;
+
+            background-size: 100%;
+
+
+            background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1612505366_159-p-kartinki-cherno-serii-fon-238.jpg");
+
+
+        }
+
+
+        header {
+            position: relative;
+            background-color: #AC9CC4;
+            width: 100%;
+            height: 100px;
+            min-width: 980px;
+            display: flex !important;
+            justify-content: center !important;
+            border: 1px solid black;
+
+
+        }
+
+
+        #site_name {
+
+            display: inline-block;
+            width: 650px;
+            color: white;
+            background: #AC9CC4;
+
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;
+        }
+
+
+        input {
+            border: none !important;
+            border-radius: 60px;
+            padding-left: 8px;
+
+
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.82);
+        }
+
+        footer {
+            border: 1px solid black;
+            width: 100%;
+            height: 60px;
+            background: #6f5d7d;
+
+            bottom: 0;
+        }
+
+
+        #footer_info {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #footer_copyright {
+            margin-top: 13px;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            font-weight: bolder;
+            font-size: 15pt;
+        }
+
+        #part_1 {
+            display: inline-block;
+            width: 390px;
+        }
+
+        #part_2 {
+            display: inline-block;
+            width: 390px;
+        }
+
+
+        .rating-mini span {
+            padding: 0;
+            font-size: 25px;
+            line-height: 1;
+            color: lightgrey;
+        }
+
+        .rating-mini > span:before {
+            content: '★';
+        }
+
+        .rating-mini > span.active {
+            color: gold;
+        }
+
+        p {
+            margin-bottom: 9px !important;
+        }
+
+
+        @media screen and (max-width: 768px) and (min-width: 320px) and (orientation: portrait) {
+
+
+            .rating-mini span {
+                padding: 0;
+                font-size: 40px;
+                line-height: 0.5;
+                color: lightgrey;
+            }
+
+
+            #tb3 {
+
+                width: 350px;
+                height: 350px;
+                margin-left: 47px;
+                margin-top: 50px;
+
+            }
+
+
+        }
+
+        :root {
+        }
+
+        :root[theme='dark'] {
+            filter: invert(100%);
+            background-blend-mode: exclusion;
+        }
+    </style>
+
+
+</head>
+
+<body id="bg">
+
+
+<header>
+    <div id="header_cont">
+        <div class="logo">
+
+            <img src="logo.png" id="toggle-theme" style="width: 80px; height: 70px; cursor: pointer;">
+
+        </div>
+        <div id="site_name" style="cursor: pointer;">
+            <a href="/main" style="color: white !important; text-decoration:none !important;">MY CARS</a>
+
+        </div>
+        <div th:if=${isAuth!=null} style="display: flex; justify-content: space-between" id="login_k">
+
+
+            <div style=" display: inline-block; width: 400px"><a
+                    style="display: inline-block; color: #E26161; font-size: 18pt;" href="/cabinet">
+                <div th:text="${'Привет, ' + isAuth.username}"></div>
+                <a href="/cabinet/cart">
+                    <div style="display: inline-block; width: 70px; height: 70px" ;><img
+                            src="https://p1.hiclipart.com/preview/349/908/905/bicycle-fotolia-basket-bicycle-accessory-storage-basket-png-clipart.jpg"
+                            width="70px" height="70px"></div>
+                </a>
+                <form style="height: 100px; width: 100px; display: inline-block; margin-top: 25px" id="logout"
+                      th:action="@{/logout}" method="post">
+                    <input style="width: 100px" type="submit" value="Logout"/>
+                </form>
+            </div>
+        </div>
+        <div th:if=${isAuth==null} id="login_k">
+
+            <a href="/login" class="button5" style="margin-left: 20px !important;">Login</a>
+            <a href="/registration" class="button5">Register</a>
+
+        </div>
+
+
+    </div>
+
+
+</header>
+<main style="height: 70px; background-color: #6f5d7d;text-align: center; font-size: 35pt; color: #E26161;
+
+            font-weight: bold;
+
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;">
+    КОРЗИНА
+</main>
+
+<div id="main">
+
+
+    <div id="trendSec">
+        <th:block th:each="set,state : ${stashSets}">
+                    <div id="tb3" style="display: flex; justify-content: center">
+                        <div style="width: 210px;height: 210px; display: inline-block; margin-top: 5px;margin-left: 20px;">
+                            <a th:href="${'/main/' + set.car.id}"><img th:src="${set.car.img}" width="210px"
+                                                                                   height="210px"
+                                                                                   style="vertical-align: top; display: block; border-radius: 20px;
+               border: 2px solid black; box-shadow: 0 0 4px #666;"></a>
+                        </div>
+                        <div style="width: 760px;height: 210px; display: block;  margin-top: 5px;">
+                            <div style="display: block;justify-content: center;">
+                                <div style="display: flex; justify-content: center ;">
+                                    <div style="width: 85%">
+                                    <a th:href="${'/main/' + set.car.id}"><p
+                                            style="display: block; text-align: center; font-size: 20pt;"
+                                            th:text="${set.car.brand + set.car.model}"></p></a>
+
+                                    </div>
+                                    <div>
+                                        <a th:href="${'/cart/delete/' + set.id}" class="button5"
+                                           style="float: right; margin-top: 5px; width: 33px; height: 33px;  padding: 0px 0px 8px 7px; background-color:  #E26161;">&#10008;</a>
+                                    </div>
+                                </div>
+                                <div style="display: flex;justify-content: space-around; width: 100%;">
+                                    <div style="display: block">
+                                        <div th:text="${'Мощность: ' + set.car.hp + ' Л.С.'}" style="font-size: 18pt;">
+
+                                        </div>
+                                        <div th:text="${'Скорость: ' + set.car.speed + ' Км/ч'}" style="font-size: 18pt;">
+
+                                        </div>
+                                        <div th:text="${'Год выпуска: ' + set.car.year}" style="font-size: 18pt;">
+
+                                        </div>
+
+
+                                    </div>
+                                    <div style="display: block; ">
+                                        <div th:text="${'Кузов: ' + set.car.type}" style="font-size: 18pt;">
+
+                                        </div>
+                                        <div th:text="${'На складе: ' + set.car.amount + ' шт.'}" style="font-size: 18pt;">
+
+                                        </div>
+                                        <div th:text="${'Стоимость: ' + set.car.cost + ' $'}" style="font-size: 18pt;">
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div style="display: block; ">
+                                        <div th:text="${'В корзине: ' + set.amount + ' шт.'}" style="font-size: 18pt;">
+
+                                        </div>
+                                        <div th:text="${'Итог: ' + set.amount*set.car.cost + ' $'}"
+                                             style="font-size: 18pt;">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <form style="display: flex;float: left; align-items: center; width: 100%; margin-top: 8px;"
+                                      th:action="@{'/cart/edit/'+${set.id}}" th:object="${count}" method="get">
+
+                                    <input value="Изменить кол-во" type="submit" class="button5"
+                                           style="margin-left: 20px; background-color: #EBC7DF !important; display: block; position: inherit; float: none !important; text-align: center; width: 230px; color:black; margin-top: 0px; padding: 0px;">
+                                    <div style="display: flex; margin-left: 20px;">
+                                        <input type="number" id="count" name="count" class="count"
+                                               style="outline: none !important; border: 1px solid black; width: 100px; height: 30px; "
+                                               min="1"  th:value="${set.amount}"
+                                               th:max="${set.car.amount}">
+                                        <div style="margin-right: 50px; margin-left: 8px; font-size: 16pt">шт.</div>
+                                    </div>
+                                </form>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+        </th:block>
+        <th:block th:if=${stashSets.size!=0}>
+
+            <div style="font-size: 22pt; color: #FBCEB1; text-align: center;" th:text="${'Итоговая цена: ' + totalCost +' $'}">
+
+            </div>
+            <div style="display: flex; justify-content: center; width: 980px;">
+
+
+                <div>
+
+                    <a th:href="@{'/cabinet/cart/buying'}" class="button5"
+                       style="background-color: #EBC7DF !important; display: block; position: inherit; float: none !important; text-align: center; margin-top: 10px;width: 290px;margin-right: 15px">Оформить
+                        заказ</a>
+
+                </div>
+                <div>
+                    <a href="/cabinet/cart/clear" class="button5"
+                       style="background-color: #C2BCFB !important; display: block; position: inherit; float: none !important; text-align: center; margin-top: 10px;width: 290px;margin-left: 15px">Очистить
+                        корзину</a>
+                </div>
+            </div>
+        </th:block>
+    </div>
+</div>
+
+
+<footer>
+    <div id="footer_info">
+        <div id="footer_copyright">
+            Copyrighted by PLACEHOLDER©
+        </div>
+        <div id="footer_copyright">
+            support: <a href="#" target="_blank">KD</a>
+        </div>
+    </div>
+</footer>
+</div>
+
+
+<script>
+    const toggleBtn = document.querySelector("#toggle-theme");
+    toggleBtn.addEventListener("click", function () {
+        if (document.documentElement.hasAttribute("theme")) {
+            document.documentElement.removeAttribute("theme");
+        } else {
+            document.documentElement.setAttribute("theme", "dark");
+        }
+    });
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Register
+    </title>
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+
+    <style>
+        button, button:visited, a:focus, a:active, a:hover{
+            outline:0 none !important;
+        }
+
+        input, textarea {
+            outline:none;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 60%, 100% {
+                transform: translateY(0);
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+                transform: translateY(-20px);
+            }
+
+            80% {
+                transform: translateY(-10px);
+                transform: translateY(-10px);
+            }
+        }
+
+
+
+
+        #bg {
+            width: 100%;
+            height: 100%;
+            background-size:100%;
+            background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1612505366_159-p-kartinki-cherno-serii-fon-238.jpg");
+
+
+
+
+        }
+
+        #htext{
+
+            color: white;
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+
+        #login{
+
+            width: 400px;
+            height: 400px;
+
+            margin: -250 0 0 -200;
+            font-family: Arial black;
+            font-weight: bold;
+            font-size: 72px;
+            text-align: center;
+            color: green;
+            text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+        }
+
+
+
+        form{
+            margin: 0 auto;
+            min-width: 980px;
+            height: 900px;
+            font-family: Arial;
+            font-size: 40px;
+            text-align: center;
+
+        }
+
+
+        input{
+            height: 40px;
+            width: 300px;
+            border-radius: 20px/20px;
+            padding-left: 15px;
+            border:hidden;
+            font-size:20px;
+
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+
+        }
+        #pos{
+
+            color: white;
+            font-family: arial;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+        #pos1{
+            color: white;
+            font-family: arial;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;	margin-top: 20px;
+
+        }
+        button{
+            text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+            margin-top: 40px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            width: 250px;
+            height: 70px;
+            border-radius: 40px/40px !important;
+            background: #E26161;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+            box-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        }
+
+        button:hover{
+            animation: bounce 0.5s;
+            border: 2px solid #7EA2FF;
+        }
+        .already{
+            margin-top: 15px;
+            text-align: center;
+            font-family: arial;
+            font-size: 20px;
+            color:white;
+        }
+        #yes{
+            color: #c17600;
+            font-weight: bold;
+        }
+
+
+
+        #regcont
+        {
+            min-width: 980px;
+            height: 150px;
+            margin: 0 auto;
+        }
+        #register{
+
+            width: 400px;
+            height: 200px;
+
+
+            margin: 30px auto;
+
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 70pt;
+            color: #ff0051;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+        #forma{
+            margin: 0 auto;
+            width: 980px;
+            height: 800px;
+
+
+        }
+
+        #mein{
+
+            min-width: 980px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        #header_cont{
+            width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            display: flex;
+        }
+        #login_k
+        {
+            text-align: center;
+
+            width: 350px;
+
+
+
+        }
+        .logo{
+            width: 350px;
+            height: 70px;
+            margin-top: 10px;
+
+        }
+
+        #site_name{
+
+            display: inline-block;
+            width: 650px;
+            color: white;
+            background: #AC9CC4;
+
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;
+        }
+        .button5
+        {
+
+            margin-top:30px;
+            height: 40px;
+            float: right;
+            width: 100px;
+            border-radius: 20px;
+
+        }
+
+        a.button5 {
+            position: relative;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+
+            user-select: none;
+            padding-top: 4px;
+            outline: none ;
+            font-size: 20px;
+            background-color: orange;
+            background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 0%, rgba(0,0,0,0) 50%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto;
+            background-position: 200% 0, 0 0;
+            box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+            text-decoration: none !important;
+
+
+        }
+        a.button5:active {
+            top: 1px;
+            box-shadow: none;
+        }
+        a.button5:hover {
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+        header{
+            position:relative;
+            background-color: #AC9CC4;
+            width: 100%;
+            height: 100px;
+            min-width: 980px;
+            display: flex !important;
+            justify-content: center !important;
+            border: 1px solid black;
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+        @media screen and (max-width: 768px) and (min-width: 320px) and (orientation: portrait){
+
+            form{
+                font-size: 60pt;
+            }
+
+
+            #regcont
+
+            {
+                min-width: 980px;
+                height: 200px;
+            }
+
+            #register{
+                margin-top:100px;
+
+                width: 600px;
+                height: 200px;
+                font-size: 100pt;
+
+            }
+            input{
+                height: 80px;
+                width: 550px;
+                border-radius: 60px;
+                padding-left: 15px;
+                border:hidden;
+
+
+                box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+
+            }
+            #pos1{
+                margin-top:60px;
+                font-size: 50px;
+            }
+
+            #pos{
+                font-size: 50px;
+            }
+            button{
+                width: 400px;
+                height: 125px;
+                border-radius: 120px !important;
+                font-style: 30pt;
+
+
+
+
+
+            }
+            .already{
+                font-size:30pt;
+                margin-top: 40px;
+            }
+
+
+
+        }
+
+        :root{}
+        :root[theme='dark'] {
+            filter: invert(100%);
+            background-blend-mode: exclusion;
+        }
+    </style>
+
+
+
+
+</head>
+
+
+<body id="bg">
+
+
+<header>
+    <div id="header_cont">
+        <div class="logo">
+
+            <img src="#" id="toggle-theme" style="width: 80px; height: 70px; cursor: pointer;">
+
+        </div>
+        <div id="site_name" style="cursor: pointer;">
+            <a href="/main" style="color: white !important; text-decoration:none !important;">MY CARS</a>
+
+        </div>
+        <div th:if=${isAuth!=null} style="display: flex; justify-content: space-between" id="login_k">
+
+
+            <div  style=" display: inline-block; width: 400px" ><a style="display: inline-block; color: #E26161; font-size: 18pt;" th:href="${'/cabinet/' + isAuth.id}"> <div th:text="${'Привет, ' + isAuth.username}"></div></a>
+                <div style="display: inline-block; width: 70px; height: 70px";><img src="https://p1.hiclipart.com/preview/349/908/905/bicycle-fotolia-basket-bicycle-accessory-storage-basket-png-clipart.jpg" width="70px" height="70px"></div>
+                <form style="height: 100px; width: 100px; display: inline-block; margin-top: 25px" id="logout" th:action="@{/logout}" method="post">
+                    <input style="width: 100px"  type="submit" value="Logout" />
+                </form>
+            </div>
+        </div>
+        <div th:if=${isAuth==null} id="login_k" >
+
+            <a href="/login" class="button5" style="margin-left: 20px !important;">Login</a>
+            <a href="/registration" class="button5">Register</a>
+
+        </div>
+
+
+
+    </div>
+
+
+</header>
+
+
+
+
+
+<form id="forma"  th:action="@{/registration}" th:object="${user}" method="post">
+    <div id="regcont">
+        <div id="register" style="color:#E26161">
+            Register
+        </div>
+
+    </div>
+    <div id="pos1">
+        <label for="email">Email:</label><br>
+        <input th:field="*{email}" id="email" type="email" name="email"  required>
+    </div>
+    <div id="pos1">
+        <label for="username">Username:</label><br>
+        <input th:field="*{username}" id="username" type="text" name="username"  required>
+    </div>
+
+    <div id="pos1">
+        <label for="password">Password:</label><br>
+        <input th:field="*{password}" id="password" type="password" name="password"  required>
+    </div>
+
+
+    <div id="pos1">
+       <input type="submit">
+
+    </div>
+    <div>
+        <p class="already">Already have an account? <a href="/login"><span id="Yes">Yes</span></a></p>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+

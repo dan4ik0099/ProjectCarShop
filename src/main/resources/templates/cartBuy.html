@@ -1,0 +1,667 @@
+<!doctype HTML>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Main
+    </title>
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+
+        #header_cont {
+            min-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            display: flex;
+        }
+
+        #login_k {
+            text-align: center;
+
+            width: 350px;
+
+
+        }
+
+        .logo {
+            width: 350px;
+            height: 70px;
+            margin-top: 10px;
+        }
+
+        #site_name {
+
+            display: inline-block;
+            width: 650px;
+            color: white;
+            background: #00acd9;
+
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;
+        }
+
+        #site_name {
+
+            display: inline-block;
+            width: 650px;
+            color: white;
+            background: #00acd9;
+
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;
+        }
+
+        .button5 {
+
+            margin-top: 30px;
+            height: 40px;
+            float: right;
+            width: 100px;
+            border-radius: 20px;
+
+        }
+
+        a.button5 {
+            position: relative;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+
+            user-select: none;
+            padding-top: 4px;
+            outline: none;
+            font-size: 20px;
+            background-color: orange;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 0%, rgba(0, 0, 0, 0) 50%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto;
+            background-position: 200% 0, 0 0;
+            box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+            text-decoration: none !important;
+
+
+        }
+
+        a.button5:active {
+            top: 1px;
+            box-shadow: none;
+        }
+
+        a.button5:hover {
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+
+        input.button5:hover {
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+
+        input.button5 {
+            position: relative;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+
+            user-select: none;
+            padding-top: 4px;
+            outline: none !important;
+            font-size: 20px;
+            background-color: orange;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 0%, rgba(0, 0, 0, 0) 50%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto;
+            background-position: 200% 0, 0 0;
+            box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+            text-decoration: none !important;
+        }
+
+        input.button5:active {
+            top: 1px;
+            box-shadow: none;
+        }
+
+
+        header {
+            position: relative;
+            background-color: #00acd9;
+            width: 100%;
+            height: 100px;
+            min-width: 980px;
+            display: flex !important;
+            justify-content: center !important;
+            border: 1px solid black;
+
+
+        }
+
+        #bar {
+            width: 980px;
+            height: 70px;
+
+            z-index: 999;
+
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .topmenu {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .topmenu > li {
+            display: inline-block;
+            position: relative;
+        }
+
+        .topmenu > li: after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 1px;
+            height: 15px;
+            background: black;
+            top: 16px;
+            box-shadow: 4px -2px 0 black;
+            transform: rotate(30deg);
+        }
+
+        .topmenu > li:last-child:after {
+            background: none;
+            box-shadow: none;
+        }
+
+        .topmenu > li > a {
+            padding: 12px 26px;
+            color: #1f1f1f;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .topmenu li a:hover {
+            color: #b26205;
+        }
+
+        .submenu {
+            border-radius: 15px;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            width: 210px;
+            margin-left: -105px;
+            background: #FFB524;
+            border: 1px solid black;
+            z-index: 5;
+            visibility: hidden;
+            opacity: 0;
+            transform: scale(.8);
+            transition: .4s ease-in-out;
+        }
+
+        .submenu li a {
+            padding: 10px 0;
+            margin: 0 10px;
+            border-bottom: 1px solid black;
+            font-size: 16px;
+            color: #484848;
+            font-family: 'Kurale', serif;
+            font-weight: bolder;
+        }
+
+        .topmenu > li:hover .submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #btn1 {
+            margin-left: 30px;
+        }
+
+        #btn2 {
+            margin-left: 30px;
+        }
+
+        #btn3 {
+            margin-left: 30px;
+        }
+
+        #btn4 {
+            margin-left: 30px;
+            margin-right: 5px;
+        }
+
+        a {
+            color: #000 !important;
+            text-decoration: none;
+        }
+
+        nav {
+            background-color: #6f5d7d;
+        }
+
+        nav ul {
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            outline: none;
+            display: block;
+            transition: .4s ease-in-out;
+        }
+
+        #main {
+
+            width: 100%;
+            height: 790px;
+            display: flex;
+        }
+
+        main {
+            width: 100%;
+            border: 1px solid #000000;
+            border-top: none;
+            background-color: #6f5d7d;
+            z-index: 999;
+            min-width: 980px;
+        }
+
+        #trendSec {
+            padding: 0 0 0 0;
+            margin: 0 auto;
+            width: 980px;
+
+
+        }
+
+
+        #tb3 {
+            display: inline-block;
+            width: 980px;
+            height: 220px;
+
+            margin-top: 40px;
+            background-color: #FBCEB1;
+            border-radius: 40px;
+            white-space: nowrap !important;
+        }
+
+
+        #bg {
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+
+
+            background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1612505366_159-p-kartinki-cherno-serii-fon-238.jpg");
+
+
+        }
+
+
+        header {
+            position: relative;
+            background-color: #AC9CC4;
+            width: 100%;
+            height: 100px;
+            min-width: 980px;
+            display: flex !important;
+            justify-content: center !important;
+            border: 1px solid black;
+
+
+        }
+
+
+        #site_name {
+
+            display: inline-block;
+            width: 650px;
+            color: white;
+            background: #AC9CC4;
+
+            font-weight: bold;
+            font-size: 50pt;
+            font-style: normal;
+            text-align: center;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            text-shadow: -3px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            white-space: nowrap;
+        }
+
+        #search_cont {
+            display: inline-block;
+            width: 200px;
+
+            height: 100%;
+
+            border-radius: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #6f5d7d;
+
+        }
+
+        #search {
+
+            margin-top: 30px;
+            margin: 0 auto;
+            position: absolute;
+            display: inline-block;
+            outline: none;
+
+        }
+
+
+        input {
+            border: none !important;
+            border-radius: 60px;
+            padding-left: 8px;
+
+
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.82);
+        }
+
+
+        footer {
+            border: 1px solid black;
+            width: 100%;
+            height: 60px;
+            background: #6f5d7d;
+
+            bottom: 0;
+        }
+
+
+        #footer_info {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #footer_copyright {
+            margin-top: 13px;
+            font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            font-weight: bolder;
+            font-size: 15pt;
+        }
+
+        #part_1 {
+            display: inline-block;
+            width: 390px;
+        }
+
+        #part_2 {
+            display: inline-block;
+            width: 390px;
+        }
+
+
+        .rating-mini span {
+            padding: 0;
+            font-size: 25px;
+            line-height: 1;
+            color: lightgrey;
+        }
+
+        .rating-mini > span:before {
+            content: '★';
+        }
+
+        .rating-mini > span.active {
+            color: gold;
+        }
+
+        p {
+            margin-bottom: 9px !important;
+        }
+
+        #main {
+
+            width: 100%;
+            height: 790px;
+            display: flex;
+            min-width: 980px;
+        }
+
+        .count {
+            background: wheat;
+        }
+
+
+        @media screen and (max-width: 768px) and (min-width: 320px) and (orientation: portrait) {
+
+
+            .rating-mini span {
+                padding: 0;
+                font-size: 40px;
+                line-height: 0.5;
+                color: lightgrey;
+            }
+
+            #trendSec {
+                width: 850px !important;
+
+                display: inline-block;
+                height: 2500px;
+
+            }
+
+
+            #tb3 {
+
+                width: 350px;
+                height: 350px;
+                margin-left: 47px;
+                margin-top: 50px;
+
+            }
+
+
+        }
+
+
+        :root {
+        }
+
+        :root[theme='dark'] {
+            filter: invert(100%);
+            background-blend-mode: exclusion;
+        }
+    </style>
+
+
+</head>
+
+<body id="bg">
+
+
+<header>
+    <div id="header_cont">
+        <div class="logo">
+
+            <img src="#" id="toggle-theme" style="width: 80px; height: 70px; cursor: pointer;">
+
+        </div>
+        <div id="site_name" style="cursor: pointer;">
+            <a href="/main" style="color: white !important; text-decoration:none !important;">MY CARS</a>
+
+        </div>
+        <div th:if=${isAuth!=null} style="display: flex; justify-content: space-between" id="login_k">
+
+
+            <div style=" display: inline-block; width: 400px"><a
+                    style="display: inline-block; color: #E26161; font-size: 18pt;" href="/cabinet">
+                <div th:text="${'Привет, ' + isAuth.username}"></div>
+                <a href="/cabinet/cart">
+                    <div style="display: inline-block; width: 70px; height: 70px" ;><img
+                            src="https://p1.hiclipart.com/preview/349/908/905/bicycle-fotolia-basket-bicycle-accessory-storage-basket-png-clipart.jpg"
+                            width="70px" height="70px"></div></a>
+                <form style="height: 100px; width: 100px; display: inline-block; margin-top: 25px" id="logout"
+                      th:action="@{/logout}" method="post">
+                    <input style="width: 100px" type="submit" value="Logout"/>
+                </form>
+            </div>
+
+        </div>
+        <div th:if=${isAuth==null} id="login_k">
+
+            <a href="/login" class="button5" style="margin-left: 20px !important;">Login</a>
+            <a href="/registration" class="button5">Register</a>
+
+        </div>
+
+
+    </div>
+
+
+</header>
+<main>
+    <nav id="bar">
+        <div id="part_1">
+            <ul class="topmenu">
+
+                <li id="btn1"><a href="kfc.html">KFC</a>
+                    <ul class="submenu">
+                        <li><a href="kfc(food).html">Food</a></li>
+                        <li><a href="kfc(drinks).html">Drinks</a></li>
+                        <li><a href="kfc(sauces).html">Sauces</a></li>
+                    </ul>
+                </li>
+                <li id="btn2"><a href="">DomDoner</a>
+                    <ul class="submenu">
+                        <li><a href="">Food</a></li>
+                        <li><a href="">Drinks</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="search_cont">
+            <input type="search" id="search" placeholder="Search...">
+
+        </div>
+        <div id="part_2">
+            <ul class="topmenu">
+                <li id="btn3"><a href="">U Vorot</a>
+                    <ul class="submenu">
+                        <li><a href="">Food</a></li>
+                        <li><a href="">Drinks</a></li>
+                    </ul>
+                </li>
+                <li id="btn4"><a href="">U Ashota</a>
+                    <ul class="submenu">
+                        <li><a href="">Food</a></li>
+                        <li><a href="">Drinks</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    </div>
+    </nav>
+</main>
+
+
+<div id="main">
+
+
+    <div id="trendSec" style="display: flex;justify-content: space-around;">
+        <div style="width: 550px; border-radius: 20px;">
+            <th:block th:each="set : ${stashSets}">
+                <div style="height: 200px; width: 100%;background: #FBCEB1;border-radius: 20px; display: flex; margin-top: 40px;">
+                    <div>  <a th:href="${'/main/' + set.car.id}"><img th:src="${set.car.img}" width="190px" height="190px" style="margin-left:7px;  display: block; border-radius: 20px; margin-top: 6px;
+               border: 2px solid black; box-shadow: 0 0 4px #666;"></a></div>
+                    <div style="display: flex;flex-direction: column; justify-content: space-around; text-align: center;  font-size: 16pt; width: 100%;">
+                        <div style="font-size: 18pt; font-weight: bold"  th:text="${set.car.brand + set.car.model}"></div>
+                        <div th:text="${'На складе: ' + set.car.amount}"></div>
+                        <div th:text="${'Стоимость: ' + set.car.cost + ' $'}"></div>
+                        <div th:text="${'В корзине: ' + set.amount + ' шт.'}"></div>
+                        <div style="font-weight: bold; text-decoration:underline; " th:text="${'Итог: ' + set.car.cost*set.amount +' $'}"></div>
+
+                    </div>
+                </div>
+            </th:block>
+
+        </div>
+        <div style="margin-top: 40px; width: 350px; background: #FBCEB1; border-radius: 20px; height: 450px; padding:20px; display: flex;flex-direction: column; align-items: center">
+            <div style="font-size: 18pt; font-weight: bold;" th:text="${'Итог: ' + totalCost + ' $'}"></div>
+            <form th:action="@{'/cabinet/cart/buying/'}" th:object="${order}" method="post" style="display: flex; flex-direction: column;align-items: center; font-size: 16pt;">
+                <label for="firstName">Имя:</label>
+                <input th:field="*{firstName}" type="text" id="firstName" name="firstName" value="@" style=" outline: none !important;">
+                <label for="lastName">Фамилия:</label>
+                <input th:field="*{lastName}" type="text" id="lastName" name="lastName"  style=" outline: none !important;">
+                <label for="adress">Адресс:</label>
+                <input th:field="*{adress}" type="text" id="adress" name="adress"  style=" outline: none !important;">
+                <label  for="phone">Телефон:</label>
+                <input th:field="*{phone}" type="text" id="phone" name="phone"  style=" outline: none !important;">
+                <input class="button5" type="submit" style="background-color: #C2BCFB; width: 160px; padding: 0px;" value="Оплатить">
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+
+<footer>
+    <div id="footer_info">
+        <div id="footer_copyright">
+            Copyrighted by PLACEHOLDER©
+        </div>
+        <div id="footer_copyright">
+            support: <a href="#" target="_blank">KD</a>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    const toggleBtn = document.querySelector("#toggle-theme");
+    toggleBtn.addEventListener("click", function () {
+        if (document.documentElement.hasAttribute("theme")) {
+            document.documentElement.removeAttribute("theme");
+        } else {
+            document.documentElement.setAttribute("theme", "dark");
+        }
+    });
+</script>
+
+
+</body>
+
+</html>
